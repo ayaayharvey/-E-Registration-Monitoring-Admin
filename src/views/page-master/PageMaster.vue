@@ -9,7 +9,7 @@
 		/>
 	</Header>
 
-	<AddPage
+	<CreatePage
 		@close-form="closeModal()"
 		v-show="showAdd"
 	/>
@@ -42,7 +42,7 @@
 <script>
 import Header from "../../components/layout/Header.vue";
 import Body from "../../components/layout/Body.vue";
-import AddPage from "../../views/page-master/actions/AddPage.vue";
+import CreatePage from "./actions/CreatePage.vue";
 import Button from "../../components/layout/Button.vue";
 import Table from "../../components/layout/table/Table.vue";
 import TableHead from "../../components/layout/table/TableHead.vue";
@@ -52,7 +52,7 @@ export default {
 	name: "PageMaster",
 	components: {
 		Header,
-		AddPage,
+		CreatePage,
 		Body,
 		Button,
 		Table,
