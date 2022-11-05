@@ -91,7 +91,7 @@ export default {
 	},
 	methods: {
 		viewAdd() {
-			// this.transaction_details = this.transactions.find((x) => x.id === id);
+			// this.transaction_details = this.transactions.find((x) => x.id === id) ;
 			this.showAdd = !this.showAdd;
 		},
 		closeModal() {
