@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Fliptop: aspakan 1",
+      "date": "October 12,2022",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "path": "fliptop-aspakan-1",
+      "tickets": [
+        {
+          "type": "PRE-SALE",
+          "price": "500",
+          "same_day": false,
+          "quantity": 100
+        },
+        {
+          "type": "WALK-IN",
+          "price": "700",
+          "same_day": true,
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "DOER Records PH",
+      "date": "November 15,2022",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "path": "fliptop-aspakan-2",
+      "tickets": [
+        {
+          "type": "VIP",
+          "price": "15000",
+          "same_day": false,
+          "quantity": 100
+        },
+        {
+          "type": "PREMIUM",
+          "price": "11000",
+          "same_day": false,
+          "quantity": 100
+        },
+        {
+          "type": "GEN AD",
+          "price": "8000",
+          "same_day": false,
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Fliptop: aspakan 3",
+      "date": "December 19,2022",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "path": "fliptop-aspakan-3",
+
+      "tickets": [
+        {
+          "type": "PRE-SALE",
+          "price": "200",
+          "same_day": false,
+          "quantity": 100
+        },
+        {
+          "type": "WALK-IN",
+          "price": "300",
+          "same_day": true,
+          "quantity": 100
+        }
+      ]
+    }
+  ]
+}
