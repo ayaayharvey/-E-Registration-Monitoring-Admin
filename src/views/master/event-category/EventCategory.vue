@@ -67,6 +67,7 @@
 						>
 					</tr>
 				</TableBody>
+				<!-- empty data -->
 			</Table>
 			<Pagination />
 		</Body>
