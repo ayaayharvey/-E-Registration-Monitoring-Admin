@@ -4,36 +4,72 @@
 		button_label="ha"
 	>
 		<Button
-			@click="viewAdd()"
+			@click="openCreateForm()"
 			:label="'ADD ' + $route.name"
+			outlined
+			icon="fa-solid fa-plus mr-1"
 		/>
 	</Header>
-	<Form
-		@close-form="closeModal()"
-		v-show="showAdd"
+	<CreateForm
+		@close-form="closeCreateForm()"
+		v-if="showCreateForm"
+	/>
+	<ViewEditForm
+		@close-form="closeViewEditForm()"
+		v-if="showViewEditForm"
+		:formData="formData"
 	/>
 	<div class="w-full">
 		<Body>
-			<Table label="Tickets Information">
+			<SearchBox />
+			<Table label="Categories">
 				<TableHead>
-					<TableData v-for="tableLabel in tableLabels">{{
-						tableLabel
-					}}</TableData>
+					<TableData v-for="tableLabel in tableLabels">
+						{{ tableLabel }}
+					</TableData>
+					<TableData class="">
+						<div class="flex justify-center gap-2">Actions</div>
+					</TableData>
 				</TableHead>
-				<TableBody v-for="ticket in tickets">
+				<TableBody
+					v-if="data.length > 0"
+					v-for="row in data"
+					:key="row.id"
+				>
 					<!-- loop -->
 					<tr
 						class="odd:bg-white even:bg-gray-100 hover:bg-gray-200 transition"
 					>
-						<TableData>{{ ticket.type }}</TableData>
-						<TableData>{{ ticket.price }}</TableData>
-						<TableData>{{ ticket.quantity }}</TableData>
-						<TableData>N/A</TableData>
-						<TableData>N/A</TableData>
+						<TableData>{{ row.title }}</TableData>
+						<TableData>{{ row.description }}</TableData>
+						<TableData class="uppercase">{{ row.status }}</TableData>
+						<TableData>{{ row.creator.full_name }}</TableData>
+						<TableData>
+							<div class="flex justify-center gap-2">
+								<button
+									@click="openViewEditForm(row.id)"
+									class="fa-solid fa-eye text-blue-900 cursor-pointer justify-end"
+								></button>
+							</div>
+						</TableData>
 					</tr>
 					<!-- endloop -->
 				</TableBody>
+				<!-- empty data -->
+				<TableBody v-if="data.length < 1">
+					<tr
+						class="odd:bg-white even:bg-gray-100 hover:bg-gray-200 transition"
+					>
+						<TableData
+							colspan="5"
+							class="text-center"
+							>NO RECORD FOUND</TableData
+						>
+					</tr>
+				</TableBody>
+				<!-- empty data -->
 			</Table>
+			<Pagination />
 		</Body>
 	</div>
 </template>
@@ -41,60 +77,73 @@
 <script>
 import Header from "../../../components/layout/Header.vue";
 import Body from "../../../components/layout/Body.vue";
-import Form from "./Form.vue";
+import CreateForm from "./CreateForm.vue";
+import ViewEditForm from "./ViewEditForm.vue";
 import Button from "../../../components/layout/Button.vue";
+import SearchBox from "../../../components/layout/SearchBox.vue";
 import Table from "../../../components/layout/table/Table.vue";
 import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
+import Pagination from "../../../components/layout/Pagination.vue";
 export default {
 	name: "PageMaster",
 	components: {
 		Header,
-		Form,
+		CreateForm,
+		ViewEditForm,
 		Body,
 		Button,
+		SearchBox,
 		Table,
 		TableHead,
 		TableBody,
 		TableData,
+		Pagination,
 	},
 	data() {
 		return {
-			showAdd: false,
-			tableLabels: ["Type", "Price", "Quantity", "Sold", "Remaining"],
-			tickets: [
+			formData: {},
+			showCreateForm: false,
+			showViewEditForm: false,
+			tableLabels: ["Title", "Description", "Status", "Creator"],
+			data: [
 				{
 					id: 1,
-					type: "VIP",
-					price: 11500,
-					quantity: 100,
-					same_day: false,
+					title: "HIPHOP",
+					description: "Hiphop event",
+					status: "active",
+					creator: {
+						id: 1,
+						full_name: "Harvey Aya-ay",
+					},
 				},
 				{
 					id: 2,
-					type: "PREMIUM",
-					price: 7500,
-					quantity: 250,
-					same_day: false,
-				},
-				{
-					id: 3,
-					type: "GEN AD",
-					price: 3500,
-					quantity: 300,
-					same_day: false,
+					title: "CORPORATE",
+					description: "Corporate event",
+					status: "inactive",
+					creator: {
+						id: 1,
+						full_name: "Harvey Aya-ay",
+					},
 				},
 			],
 		};
 	},
 	methods: {
-		viewAdd() {
-			// this.transaction_details = this.transactions.find((x) => x.id === id) ;
-			this.showAdd = !this.showAdd;
+		openCreateForm() {
+			this.showCreateForm = !this.showCreateForm;
 		},
-		closeModal() {
-			this.showAdd = false;
+		openViewEditForm(id) {
+			this.formData = this.data.find((x) => x.id === id);
+			this.showViewEditForm = !this.showViewEditForm;
+		},
+		closeCreateForm() {
+			this.showCreateForm = false;
+		},
+		closeViewEditForm() {
+			this.showViewEditForm = false;
 		},
 	},
 };

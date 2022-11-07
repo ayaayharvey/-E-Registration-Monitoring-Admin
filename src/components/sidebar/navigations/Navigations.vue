@@ -32,54 +32,54 @@ export default {
 		this.navigations = [
 			{
 				title: "Dashboard",
-				icon: "fas fa-chart-area",
+				icon: "fa fa-chart-area",
 				path: "/",
 				child: [],
 			},
 			{
 				title: "Master",
-				icon: "fas fa-calculator  ",
+				icon: "fa fa-calculator",
 				child: [
 					{
 						title: "Page Master",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/page",
 					},
 					{
 						title: "Event Category",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/event-category",
 					},
 					{
 						title: "Payment Category",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/payment-category",
 					},
 					{
 						title: "Ticket Category",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/ticket-category",
 					},
 					{
 						title: "Access",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/access",
 					},
 					{
 						title: "Event Status",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/event-status",
 					},
 					{
 						title: "Event Rate Percentage",
-						icon: "fas fa-circle",
+						icon: "fa fa-circle",
 						path: "/master/event-rate-percentage",
 					},
 				],
 			},
 			{
 				title: "Tickets",
-				icon: "fas fa-user",
+				icon: "fa fa-user",
 				path: "/tickets",
 				child: [],
 			},

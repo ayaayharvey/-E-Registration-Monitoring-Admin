@@ -2,7 +2,7 @@
 	<div class="w-full">
 		<label class="text-gray-600 text-sm font-semibold">{{ label }}</label>
 		<div class="mt-1">
-			<input
+			<textarea
 				type="textbox"
 				:value="value"
 				class="mt-1 w-full border rounded bg-gray-50 border-gray-400 px-2 py-1 placeholder:text-xs"
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-	name: "Textbox",
+	name: "TextArea",
 	props: {
 		label: String,
 		value: String,
