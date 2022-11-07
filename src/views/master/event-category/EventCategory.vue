@@ -55,6 +55,7 @@
 					</tr>
 					<!-- endloop -->
 				</TableBody>
+				<!-- empty data -->
 				<TableBody v-if="data.length < 1">
 					<tr
 						class="odd:bg-white even:bg-gray-100 hover:bg-gray-200 transition"
