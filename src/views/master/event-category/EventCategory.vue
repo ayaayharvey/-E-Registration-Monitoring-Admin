@@ -1,8 +1,5 @@
 <template>
-	<Header
-		:component_name="$route.name"
-		button_label="ha"
-	>
+	<Header :component_name="$route.name">
 		<Button
 			@click="toggleCreateForm()"
 			:label="'ADD ' + $route.name"
