@@ -39,23 +39,14 @@
 			v-if="icon"
 			:class="icon"
 			class="w-4 h-4 mx-auto"
-		></i
-		><span
+		/>
+		<span
 			v-if="size !== 'sm'"
 			class="ml-1 uppercase"
-			>{{ label }}</span
 		>
+			{{ label }}
+		</span>
 	</button>
-	<!-- <svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="w-4 h-4 mx-auto"
-				viewBox="0 0 384 512"
-			>
-				<path
-					fill="white"
-					d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-				/>
-			</svg> -->
 </template>
 
 <script>
