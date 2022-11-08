@@ -3,7 +3,8 @@ import { defineStore } from "pinia";
 export const useEventCategoryStore = defineStore("eventCategoryStore", {
 	state: () => ({
 		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2IwOGI1OC00MzJlLTQxMjItYjBhNi02N2JiMmZkOTdjY2IiLCJqdGkiOiI4ZWViYTFmZGQzNzNiYmRhMGUzYmFjOTQ0NDE4YjJkZjM3NmZmZmQ4N2ZlNjRmMmExNzkxMjdjYWU1ZDM4YThiNWE1MjdhOWE5YjdlNzNkYiIsImlhdCI6MTY2Nzg4NDA3OC4zMDE0MTIsIm5iZiI6MTY2Nzg4NDA3OC4zMDE0MTYsImV4cCI6MTY2NzkyMDA3OC4yOTMyNDgsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Vk_ZvSPVsO290LHYZUIcnROh2BAhqHXvwtyuzCYBKcCIgYLlsLqqt9PHh-jydrt9DH0GdNhCkcju9PaaM14_9aXW7rC3gSZCt8S74bncPJgxSKgalRcQz1dZB_UMYu31BthgZqjwCzRVyawP0d6ETCAOL36Iu_iCckDrjeOwm7pRPhBOutHmKgB1RfgN_GxieExxQW1oMXvGUSQWdBuEqbTVJh47pVT40hXkFR3xZ5sgwB2Uuqc8ZqOFDzwFcJsHbQRsUNQvzxst5zqTYYEF4Bb4tm9IxAjqwuVNsok4zc-kVFU2-Lpki3gZS8RaPgggmlaFh42wGUYO0BWghTl1lNjF02FE_cHRD1VFB7yjwCB-JFR52qIyXOzhfP-0aDhQrPc7_WSSv0IhXYPMwHtR1EDsz5pPT_XmQ4_18vr_7nBbIB4sYp2lbAKqtxvvNwnlc9PWHIv5eYqdvrzxC1nsPnafZ1sGuv6mFtwe7Y3A94-2j0JUkZ4KIsZ3WMkYOSJh_vhMOS3998hbCTDDzvsHtCWWKfX8E2ijXyrvVDp0b_vlNYPmNfMv0GbrnUtguHHJPz6wfbgR-MRDt_cRgpop-4QdVn_jPtiWwoIgbOc7XcTX8tuzg1DlE6eF72QuaGPY6iFC1iasd6ltraykpIk5bsa48bitLthu-BWOCmbFvh0",
+			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2IwOGI1OC00MzJlLTQxMjItYjBhNi02N2JiMmZkOTdjY2IiLCJqdGkiOiI0YjU3YWE3YzRjM2ViNTcyMzA5MDVmZGQyMThmY2Y2OWVjNWNmZTQzOTdhODZhN2QzZGY4MTVlYWJlZDQ3MDI4ZjMzMGQ4Y2U0NWQ2MmJkNiIsImlhdCI6MTY2Nzk0MTkxOS41MDExMDIsIm5iZiI6MTY2Nzk0MTkxOS41MDExMDQsImV4cCI6MTY2Nzk3NzkxOS40OTM5NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Q4HEVHWX0cfGlcnUbS1SCM63prfqdtrofc7uaMiK7-50S08bzJEUjzTynMzI7nVIbbxQBtO2TNhf9AnVFKMcj6SOZdqoZ-axzugXUDoYJUGBlsnNb8mg9tK-ktisFzOeSjMG8OUYqfSYUT42qacyKMFBd3uuzDFwXAUlMXraJcRuCaFFl_1Zxa7I4Q4rWKx2H4sHskLtDoPaFyY-xA4SUjydvJVUg_dAi5R8fVZBjsG6Tl-YTY8RnCjNylziV08yqBxneW4SxD7zGYWMB15sVyosAjNkqR3ZZ6f1KstpytCIjW3nIucD7vmqYbehIce3jeQvjXPAwH7YR0OXJsBeqjgQ9Kud4Z6BW3tijx2vQoQh1mz3ZlA4tG7UCQmZpqUEOb0zdPSyKcaPbC7VSThxHIJAgR6VWW--LtOaHcdP4IwcYyURv4R7p-MW0a5Fj5x-Ndmj7esl-cXmOZzfF7pzURlOA-OOwUZHJig30ncK6Ri6QHVt9gzYUw_atvKe4SGT9Qb0I8t-9GkM5qmQzoBuH1a_BbFereq1bRZawEbIsaXknywD_OT4841V_GWIt21Co0eW2ZnfVIWN1DYF9Zxp-NC9qvTF6kjRtr3JdwaaYOsc8rWYBnVOFyzwIWQkbkxkuI35XVe4h-HRKnfttBNGAKEiS8ZCmtnH-ptrqsIX2BU",
+		pageLink: "http://192.168.1.3:8081/api/master/event-category/get/all",
 		data: [],
 		formData: {
 			title: "",
@@ -31,6 +32,10 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 		toggleAlert() {
 			this.modalAlert = false;
 		},
+		togglePage(requestURL) {
+			this.pageLink = requestURL;
+			this.getPage();
+		},
 		async onSave() {
 			this.saving = true;
 			await fetch("http://192.168.1.3:8081/api/master/event-category/create", {
@@ -46,7 +51,7 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					if (!data.ok) {
 						throw Error(data.status);
 					} else {
-						this.getAll();
+						this.getPage();
 					}
 					return data.json();
 				})
@@ -60,8 +65,9 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					console.log(error);
 				});
 		},
-		async getAll() {
-			await fetch("http://192.168.1.3:8081/api/master/event-category/get/all", {
+		async getPage() {
+			this.loading = true;
+			await fetch(this.pageLink, {
 				method: "GET",
 				headers: {
 					"Content-type": "application/json",

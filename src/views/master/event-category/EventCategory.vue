@@ -94,13 +94,23 @@
 							colspan="5"
 							class="text-center"
 						>
-							<i class="fa-solid fa-spinner animate-spin text-3xl"></i>
+							<div class="w-full justify-center flex items-center">
+								<i class="fa-solid fa-spinner animate-spin text-3xl mr-3"></i>
+								<span class="font-semibold"> LOADING </span>
+							</div>
 						</TableData>
 					</tr>
 				</TableBody>
 				<!-- loading data -->
 			</Table>
-			<Pagination />
+			<Pagination
+				@next-page="data?.next_page_url && togglePage(data?.next_page_url)"
+				@prev-page="data?.prev_page_url && togglePage(data?.prev_page_url)"
+				:current_page="data.current_page"
+				:last_page="data.last_page"
+				:total="data.total"
+				v-if="data?.data?.length > 0"
+			/>
 		</Body>
 	</div>
 </template>
@@ -142,22 +152,29 @@ export default {
 		};
 	},
 	created() {
-		this.getAll();
+		this.getPage();
 	},
 	setup() {
 		const eventCategoryStore = useEventCategoryStore();
 		const {
 			data,
+			pageLink,
 			loading,
 			showCreateForm,
 			showViewEditForm,
 			modalAlert,
 			responseStatus,
 		} = storeToRefs(eventCategoryStore);
-		const { toggleCreateForm, openViewEditForm, toggleAlert, getAll } =
-			eventCategoryStore;
+		const {
+			toggleCreateForm,
+			openViewEditForm,
+			toggleAlert,
+			togglePage,
+			getPage,
+		} = eventCategoryStore;
 		return {
 			data,
+			pageLink,
 			loading,
 			showCreateForm,
 			showViewEditForm,
@@ -166,7 +183,8 @@ export default {
 			toggleCreateForm,
 			openViewEditForm,
 			toggleAlert,
-			getAll,
+			togglePage,
+			getPage,
 		};
 	},
 };

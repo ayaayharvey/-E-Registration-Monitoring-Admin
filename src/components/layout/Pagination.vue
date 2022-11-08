@@ -2,10 +2,12 @@
 	<div class="w-full mx-auto pt-3">
 		<div class="flex justify-between items-center">
 			<div class="text-gray-800 text-sm">
-				Page 2 of 5 (A total of 45 records.)
+				Page {{ current_page }} of {{ last_page }} (A total of
+				{{ total }} records.)
 			</div>
 			<div class="flex items-center">
 				<button
+					@click="$emit('prev-page')"
 					class="bg-blue-900 ml-1 w-[2.5rem] h-[2.5rem] border rounded text-white"
 				>
 					<svg
@@ -19,7 +21,10 @@
 						/>
 					</svg>
 				</button>
-				<button class="bg-blue-900 ml-1 w-[2.5rem] h-[2.5rem] border rounded">
+				<button
+					@click="$emit('next-page')"
+					class="bg-blue-900 ml-1 w-[2.5rem] h-[2.5rem] border rounded"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="w-4 h-4 mx-auto"
@@ -39,5 +44,10 @@
 <script>
 export default {
 	name: "Pagination",
+	props: {
+		current_page: Number,
+		last_page: Number,
+		total: Number,
+	},
 };
 </script>
