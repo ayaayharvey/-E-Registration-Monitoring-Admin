@@ -46,15 +46,16 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					if (!data.ok) {
 						throw Error(data.status);
 					} else {
-						this.showCreateForm = false;
-						this.saving = false;
-						this.responseStatus = "success";
-						this.modalAlert = true;
 						this.getAll();
 					}
 					return data.json();
 				})
-				.then((responseData) => {})
+				.then((responseData) => {
+					this.showCreateForm = false;
+					this.saving = false;
+					this.responseStatus = responseData.request_status.message;
+					this.modalAlert = true;
+				})
 				.catch((error) => {
 					console.log(error);
 				});
