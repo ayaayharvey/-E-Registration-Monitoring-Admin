@@ -19,16 +19,19 @@
 			</div>
 			<div class="w-full flex items-center mt-3 gap-3">
 				<Button
-					@click="onClose()"
+					@click="toggleCreateForm()"
 					label="CLOSE"
 					color="danger"
 					icon="fa-solid fa-xmark"
+					:disabled="saving"
 				/>
 				<Button
-					@click="onSave()"
+					@click="onSave"
 					label="SAVE"
 					icon="fa-solid fa-floppy-disk"
 					color="success"
+					:loading="saving"
+					:disabled="saving"
 				/>
 			</div>
 		</Modal>
@@ -55,21 +58,16 @@ export default {
 	props: {
 		label: String,
 	},
-	data() {
-		return {};
-	},
 	methods: {
 		onClose() {
 			this.$emit("close-form");
 		},
-		onSave(e) {
-			console.log("formdata", e);
-		},
 	},
 	setup() {
 		const eventCategoryStore = useEventCategoryStore();
-		const { formData } = storeToRefs(eventCategoryStore);
-		return { formData };
+		const { formData, saving } = storeToRefs(eventCategoryStore);
+		const { toggleCreateForm, onSave } = eventCategoryStore;
+		return { formData, saving, toggleCreateForm, onSave };
 	},
 };
 </script>
