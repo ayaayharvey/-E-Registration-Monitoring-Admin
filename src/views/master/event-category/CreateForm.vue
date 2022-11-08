@@ -6,18 +6,16 @@
 			size="modal-xs"
 		>
 			<div class="grid grid-cols-1 gap-x-8 gap-y-3">
-				<div class="mb-2">
-					<div class="text-gray-600 text-sm font-semibold">Category Title</div>
-					<input
-						class="mt-1 w-full border rounded bg-gray-50 border-gray-400 px-2 py-1"
-					/>
-				</div>
-				<div class="mb-2">
-					<div class="text-gray-600 text-sm font-semibold">Description</div>
-					<textarea
-						class="mt-1 w-full border rounded bg-gray-50 border-gray-400 px-2 py-1"
-					/>
-				</div>
+				<Textbox
+					label="Category Title"
+					v-model="formData.title"
+					placeholder="Type text here"
+				/>
+				<TextArea
+					label="Description"
+					v-model="formData.description"
+					placeholder="Type text here"
+				/>
 			</div>
 			<div class="w-full flex items-center mt-3 gap-3">
 				<Button
@@ -27,6 +25,7 @@
 					icon="fa-solid fa-xmark"
 				/>
 				<Button
+					@click="onSave()"
 					label="SAVE"
 					icon="fa-solid fa-floppy-disk"
 					color="success"
@@ -39,23 +38,38 @@
 <script>
 import Modal from "../../../components/layout/Modal.vue";
 import Textbox from "../../../components/layout/Textbox.vue";
+import TextArea from "../../../components/layout/TextArea.vue";
 import Dropdown from "../../../components/layout/Dropdown.vue";
 import Button from "../../../components/layout/Button.vue";
+import { useEventCategoryStore } from "../../../stores/EventCategoryStore";
+import { storeToRefs } from "pinia";
 export default {
 	name: "CreateForm",
 	components: {
 		Modal,
 		Textbox,
+		TextArea,
 		Dropdown,
 		Button,
 	},
 	props: {
 		label: String,
 	},
+	data() {
+		return {};
+	},
 	methods: {
 		onClose() {
 			this.$emit("close-form");
 		},
+		onSave(e) {
+			console.log("formdata", e);
+		},
+	},
+	setup() {
+		const eventCategoryStore = useEventCategoryStore();
+		const { formData } = storeToRefs(eventCategoryStore);
+		return { formData };
 	},
 };
 </script>

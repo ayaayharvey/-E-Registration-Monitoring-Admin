@@ -4,7 +4,8 @@
 		<div class="mt-1">
 			<input
 				type="textbox"
-				:value="value"
+				v-model="value"
+				@input="$emit('update:modelValue', $event.target.value)"
 				class="mt-1 w-full border rounded bg-gray-50 border-gray-400 px-2 py-1 placeholder:text-xs"
 				:class="`${disabled && 'bg-gray-200 cursor-not-allowed'}`"
 				:placeholder="`${disabled ? '' : placeholder}`"
