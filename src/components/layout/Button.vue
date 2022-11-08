@@ -33,18 +33,20 @@
 				: size === 'lg'
 				? 'px-5 py-2 text-md'
 				: 'px-3 py-1 text-sm'
-		}`"
+		}
+		`"
+		:disabled="disabled"
 	>
 		<i
 			v-if="icon"
-			:class="icon"
-			class="w-4 h-4 mx-auto"
+			:class="[loading ? 'fa-solid fa-spinner animate-spin ' : icon]"
+			class="mr-1 mx-auto"
 		/>
 		<span
 			v-if="size !== 'sm'"
 			class="ml-1 uppercase"
 		>
-			{{ label }}
+			{{ loading ? "LOADING" : label }}
 		</span>
 	</button>
 </template>
@@ -56,6 +58,7 @@ export default {
 		label: String,
 		color: String,
 		outlined: Boolean,
+		loading: Boolean,
 		disabled: Boolean,
 		size: String,
 		icon: String,
