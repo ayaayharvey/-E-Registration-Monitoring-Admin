@@ -58,7 +58,7 @@
 						</TableData>
 					</tr>
 				</TableBody>
-				<!-- endloop -->
+				<!-- end loop -->
 				<!-- empty data -->
 				<TableBody v-if="data?.data?.length < 1 && !loading">
 					<tr
