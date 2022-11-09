@@ -9,14 +9,10 @@
 	</Header>
 	<Alert
 		@close-modal="toggleAlert()"
-		:alertType="responseStatus"
-		:message="
-			responseStatus === 'success'
-				? 'Event Category Added.'
-				: 'Attempt Unsuccessful!'
-		"
-		:buttonConfirm="responseStatus === 'success'"
-		:buttonClose="responseStatus === 'error'"
+		:alertType="actionResponse.responseStatus"
+		:message="actionResponse.responseMessage"
+		:buttonConfirm="actionResponse.responseStatus === 'success'"
+		:buttonClose="actionResponse.responseStatus === 'error'"
 		v-if="modalAlert"
 	/>
 	<CreateForm
@@ -25,7 +21,7 @@
 	/>
 	<ViewEditForm
 		@close-form="closeViewEditForm()"
-		:formData="formData"
+		:formDataSelected="formDataSelected"
 		v-if="showViewEditForm"
 	/>
 	<div class="w-full">
@@ -55,7 +51,7 @@
 						<TableData>
 							<div class="flex justify-center gap-2">
 								<button
-									@click="openViewEditForm(row.id)"
+									@click="getRecord(row.id)"
 									class="fa-solid fa-eye text-blue-900 cursor-pointer justify-end"
 								></button>
 							</div>
@@ -146,7 +142,7 @@ export default {
 	},
 	data() {
 		return {
-			formData: {},
+			formDataSelected: {},
 			tableLabels: ["Title", "Description", "Status", "Creator"],
 			data: {},
 		};
@@ -156,6 +152,7 @@ export default {
 	},
 	setup() {
 		const eventCategoryStore = useEventCategoryStore();
+		// state and getters
 		const {
 			data,
 			pageLink,
@@ -163,15 +160,19 @@ export default {
 			showCreateForm,
 			showViewEditForm,
 			modalAlert,
-			responseStatus,
+			actionResponse,
 		} = storeToRefs(eventCategoryStore);
+		// actions
 		const {
 			toggleCreateForm,
 			openViewEditForm,
+			closeViewEditForm,
 			toggleAlert,
 			togglePage,
 			getPage,
+			getRecord,
 		} = eventCategoryStore;
+		// return
 		return {
 			data,
 			pageLink,
@@ -179,12 +180,14 @@ export default {
 			showCreateForm,
 			showViewEditForm,
 			modalAlert,
-			responseStatus,
+			actionResponse,
 			toggleCreateForm,
 			openViewEditForm,
+			closeViewEditForm,
 			toggleAlert,
 			togglePage,
 			getPage,
+			getRecord,
 		};
 	},
 };
