@@ -3,12 +3,12 @@
 		<div class="text-gray-600 text-sm font-semibold">{{ label }}</div>
 		<div class="mt-1 relative">
 			<button
-				@click="openSelection()"
+				@click="toggleSelection()"
 				class="py-1 capitalize border rounded bg-gray-50 border-gray-400 px-2 w-full placeholder:text-xs flex justify-between items-center"
 				:class="`${disabled && 'bg-gray-200 cursor-not-allowed'}`"
 				:disabled="disabled"
 			>
-				{{ selected.label }}
+				{{ selected }}
 
 				<i
 					v-if="!disabled"
@@ -22,7 +22,7 @@
 						v-for="selection in selections"
 						class="px-3 py-2 capitalize hover:bg-gray-200 cursor-pointer rounded"
 					>
-						{{ selection.label }}
+						{{ selection }}
 					</li>
 				</ul>
 			</div>
@@ -36,39 +36,27 @@ export default {
 	props: {
 		label: String,
 		value: String,
-		selections: Object,
+		selections: Array,
 		disabled: Boolean,
 	},
 	data() {
 		return {
 			selectionOpen: false,
-			selected: {
-				id: this.selections[0] && this.selections[0].id,
-				label: this.selections[0] && this.selections[0].label,
-			},
+			selected: "",
 		};
 	},
 	methods: {
-		openSelection() {
+		toggleSelection() {
 			this.selectionOpen = !this.selectionOpen;
 		},
 		selectOption(data) {
-			this.selected = {
-				id: data.id,
-				label: data.label,
-			};
-			this.openSelection();
-		},
-		resetForm() {
-			this.selectionOpen = false;
-			this.selected = {
-				id: this.selections[0] && this.selections[0].id,
-				label: this.selections[0] && this.selections[0].label,
-			};
+			this.selected = data;
+			this.$emit("selected", data);
+			this.toggleSelection();
 		},
 	},
 	created() {
-		this.selected = this.selections.find((x) => x.label === this.value);
+		this.selected = this.value;
 	},
 };
 </script>

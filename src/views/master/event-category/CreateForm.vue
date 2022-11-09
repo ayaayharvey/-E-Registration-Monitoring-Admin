@@ -26,10 +26,10 @@
 					:disabled="saving"
 				/>
 				<Button
-					@click="onSave"
+					@click="submitForm(formData.id)"
 					label="SAVE"
-					icon="fa-solid fa-floppy-disk"
 					color="success"
+					icon="fa-solid fa-floppy-disk"
 					:loading="saving"
 					:disabled="saving"
 				/>
@@ -66,8 +66,8 @@ export default {
 	setup() {
 		const eventCategoryStore = useEventCategoryStore();
 		const { formData, saving } = storeToRefs(eventCategoryStore);
-		const { toggleCreateForm, onSave } = eventCategoryStore;
-		return { formData, saving, toggleCreateForm, onSave };
+		const { toggleCreateForm, submitForm, onSubmit } = eventCategoryStore;
+		return { formData, saving, toggleCreateForm, submitForm, onSubmit };
 	},
 };
 </script>
