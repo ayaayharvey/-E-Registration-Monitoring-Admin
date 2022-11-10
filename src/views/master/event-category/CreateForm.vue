@@ -26,7 +26,7 @@
 					:disabled="saving"
 				/>
 				<Button
-					@click="submitForm(formData.id)"
+					@click="submitForm(formData)"
 					label="SAVE"
 					color="success"
 					icon="fa-solid fa-floppy-disk"
