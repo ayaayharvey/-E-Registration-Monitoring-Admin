@@ -3,7 +3,9 @@
 		class="border-2 transition rounded w-60 font-semibold"
 		:class="`
 		${
-			!outlined
+			disabled
+				? 'text-white bg-gray-400 border-gray-400 hover:bg-gray-400 hover:border-gray-400 cursor-not-allowed'
+				: !outlined
 				? color === 'danger'
 					? 'text-white bg-red-800 border-red-800 hover:bg-red-700 hover:border-red-700'
 					: color === 'secondary'
@@ -22,10 +24,6 @@
 				: color === 'warning'
 				? 'text-yellow-500 bg-white border-yellow-500 hover:bg-yellow-400 hover:border-yellow-400 hover:text-white'
 				: 'text-blue-900 bg-white border-blue-900 hover:bg-blue-700 hover:border-blue-700 hover:text-white'
-		}
-		${
-			disabled &&
-			'text-white bg-gray-400 border-gray-400 hover:bg-gray-400 hover:border-gray-400 cursor-not-allowed'
 		}
 		${
 			size === 'sm'

@@ -15,6 +15,14 @@
 		:buttonClose="actionResponse.responseStatus === 'error'"
 		v-if="modalAlert"
 	/>
+	<Alert
+		@close-modal="toggleAlert()"
+		:alertType="actionResponse.responseStatus"
+		:message="actionResponse.responseMessage"
+		:buttonConfirm="actionResponse.responseStatus === 'success'"
+		:buttonClose="actionResponse.responseStatus === 'error'"
+		v-if="modalAlert"
+	/>
 	<CreateForm
 		@close-form="toggleCreateForm()"
 		v-if="showCreateForm"
@@ -22,6 +30,7 @@
 	<ViewEditForm
 		@close-form="closeViewEditForm()"
 		:formDataSelected="formDataSelected"
+		:forDeletion="forDeletion"
 		v-if="showViewEditForm"
 	/>
 	<div class="w-full">
@@ -44,15 +53,27 @@
 					<tr
 						class="odd:bg-white even:bg-gray-100 hover:bg-gray-200 transition"
 					>
-						<TableData>{{ row.title }}</TableData>
+						<TableData>
+							<div class="flex">
+								<!-- <input
+									type="checkbox"
+									class="checked:bg-blue-500 mr-4 cursor-pointer"
+								/> -->
+								{{ row.title }}
+							</div>
+						</TableData>
 						<TableData>{{ row.description }}</TableData>
 						<TableData class="uppercase">{{ row.status }}</TableData>
 						<TableData>{{ row.creator.full_name }}</TableData>
 						<TableData>
 							<div class="flex justify-center gap-2">
 								<button
-									@click="getRecord(row.id)"
+									@click="openViewEditForm(row.id, false)"
 									class="fa-solid fa-eye text-blue-900 cursor-pointer justify-end"
+								></button>
+								<button
+									@click="openViewEditForm(row.id, true)"
+									class="fa-solid fa-trash-can text-red-700 cursor-pointer justify-end"
 								></button>
 							</div>
 						</TableData>
@@ -147,6 +168,12 @@ export default {
 			data: {},
 		};
 	},
+	// methods: {
+	// 	getRecord(id) {
+	// 		this.formDataSelected = this.data?.data.find((x) => x.id === id);
+	// 		this.showViewEditForm = !this.showViewEditForm;
+	// 	},
+	// },
 	created() {
 		this.getPage();
 	},
@@ -161,6 +188,7 @@ export default {
 			showViewEditForm,
 			modalAlert,
 			actionResponse,
+			forDeletion,
 		} = storeToRefs(eventCategoryStore);
 		// actions
 		const {
@@ -170,7 +198,6 @@ export default {
 			toggleAlert,
 			togglePage,
 			getPage,
-			getRecord,
 		} = eventCategoryStore;
 		// return
 		return {
@@ -181,13 +208,13 @@ export default {
 			showViewEditForm,
 			modalAlert,
 			actionResponse,
+			forDeletion,
 			toggleCreateForm,
 			openViewEditForm,
 			closeViewEditForm,
 			toggleAlert,
 			togglePage,
 			getPage,
-			getRecord,
 		};
 	},
 };

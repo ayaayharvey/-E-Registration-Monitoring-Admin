@@ -3,10 +3,11 @@ import { defineStore } from "pinia";
 export const useEventCategoryStore = defineStore("eventCategoryStore", {
 	state: () => ({
 		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2IwOGI1OC00MzJlLTQxMjItYjBhNi02N2JiMmZkOTdjY2IiLCJqdGkiOiI0YjU3YWE3YzRjM2ViNTcyMzA5MDVmZGQyMThmY2Y2OWVjNWNmZTQzOTdhODZhN2QzZGY4MTVlYWJlZDQ3MDI4ZjMzMGQ4Y2U0NWQ2MmJkNiIsImlhdCI6MTY2Nzk0MTkxOS41MDExMDIsIm5iZiI6MTY2Nzk0MTkxOS41MDExMDQsImV4cCI6MTY2Nzk3NzkxOS40OTM5NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Q4HEVHWX0cfGlcnUbS1SCM63prfqdtrofc7uaMiK7-50S08bzJEUjzTynMzI7nVIbbxQBtO2TNhf9AnVFKMcj6SOZdqoZ-axzugXUDoYJUGBlsnNb8mg9tK-ktisFzOeSjMG8OUYqfSYUT42qacyKMFBd3uuzDFwXAUlMXraJcRuCaFFl_1Zxa7I4Q4rWKx2H4sHskLtDoPaFyY-xA4SUjydvJVUg_dAi5R8fVZBjsG6Tl-YTY8RnCjNylziV08yqBxneW4SxD7zGYWMB15sVyosAjNkqR3ZZ6f1KstpytCIjW3nIucD7vmqYbehIce3jeQvjXPAwH7YR0OXJsBeqjgQ9Kud4Z6BW3tijx2vQoQh1mz3ZlA4tG7UCQmZpqUEOb0zdPSyKcaPbC7VSThxHIJAgR6VWW--LtOaHcdP4IwcYyURv4R7p-MW0a5Fj5x-Ndmj7esl-cXmOZzfF7pzURlOA-OOwUZHJig30ncK6Ri6QHVt9gzYUw_atvKe4SGT9Qb0I8t-9GkM5qmQzoBuH1a_BbFereq1bRZawEbIsaXknywD_OT4841V_GWIt21Co0eW2ZnfVIWN1DYF9Zxp-NC9qvTF6kjRtr3JdwaaYOsc8rWYBnVOFyzwIWQkbkxkuI35XVe4h-HRKnfttBNGAKEiS8ZCmtnH-ptrqsIX2BU",
-		pageLink: "http://192.168.1.3:8081/api/master/event-category/get/all",
-		createLink: "http://192.168.1.3:8081/api/master/event-category/create",
-		updateLink: "http://192.168.1.3:8081/api/master/event-category/edit",
+			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2I0NzUxNS1iODA3LTQ2ZTAtYmMxZi1jYTU4MDkxZGZlMjkiLCJqdGkiOiIwZTJlMzc4NzQ2ZTJlYjRmNzhkMDdiNzk4OGU1NGRlNGFjMjFhNzBhNzdkOWY4Y2E0NmM3ZjUxMjFlOThhOWVjMDE0ZmQyZTMxN2Q2MGUzNCIsImlhdCI6MTY2ODAxNTI1MS43MDkxNjgsIm5iZiI6MTY2ODAxNTI1MS43MDkxOCwiZXhwIjoxNjY4MDUxMjUxLjY4OTQ4OSwic3ViIjoiMSIsInNjb3BlcyI6W119.RSyxkBHQBhDusd67q0hw8Bc4cW6G-_soA1Cir2kCLByQW9o3CdGiqeMrAChRvvOgN9xAvrdsbihOtHISGi-gTnEgz5omN8Y2ChtL5X19_u8brNmAzBVthONOWku5sY3z8_COKT8qNoNqfpVa1YbG-yQQ_08MHeMk9A-7fq_TdpncFOtaO7gB6WF6i1MXpTU2E8JgI_uV6rgCs1RuTs_jZ8WWijWsbdMoTLtIeZ09igaa0SBEXhKKjEAlIx5-5CBUWeiD20ruwvZ9bIwRtxTKQh0wlRkvd68mbFeVnL8EdCg7DTr0NUHACuYE-V4oEgEy_QuXdwX7Viab2vo8-h5W80d89_v1xeKp8YKnttRx_nATMHEVX6oJXpShtE8lZA_5Ax2hniUdj2-zbBqFhDZI6ijetzIty5eyY9cdw0wWRf3pX1UuQCewDE4tCfXycK9-WlYX23IKILQag4QwPyPxV0-YMS--KYE1zDi2uCGU2QKjjRjurIKKVWvx9B3rvO2iVrHuHA3YzLIVCZ3UmGCedNRUuT4k1XXcMpXkw7J8h3TVx17MQtU_qpa6S9aSLdgaatHTb4WRxwbNtlLR6GTsXwPDT_MsNiHUjZ0zjI1LZZq2lknxprYVgcmUmXNb17ADUWD4mFTvxf-Pb2LTRSsi_5jp6AvFTna_0aDmNkaGEuE",
+		pageLink: "http://192.168.1.8:8081/api/master/event-category/get/all",
+		createLink: "http://192.168.1.8:8081/api/master/event-category/create",
+		updateLink: "http://192.168.1.8:8081/api/master/event-category/edit",
+		deleteLink: "http://192.168.1.8:8081/api/master/event-category/delete",
 		data: [],
 		formData: {
 			id: null,
@@ -25,13 +26,15 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 			responseStatus: "",
 			responseMessage: "",
 		},
+		forDeletion: false,
 	}),
 	actions: {
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
 		},
-		openViewEditForm(id) {
-			this.formDataSelected = this.data.data.find((x) => x.id === id);
+		openViewEditForm(id, method) {
+			this.forDeletion = method;
+			this.formDataSelected = this.data?.data.find((x) => x.id === id);
 			this.showViewEditForm = !this.showViewEditForm;
 		},
 		closeViewEditForm() {
@@ -44,20 +47,43 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 			this.pageLink = requestURL;
 			this.getPage();
 		},
-		submitForm(recordId) {
-			if (recordId === null) this.onSubmit(true);
-			else this.onSubmit(false);
-		},
-		async onSubmit(newData) {
+		submitForm(form) {
 			this.saving = true;
-			await fetch(newData ? this.createLink : this.updateLink, {
-				method: newData ? "POST" : "POST",
+			this.formDataSelected = form;
+			if (form.id === null) this.onSubmit("save");
+			else if (form.is_deleted) this.onSubmit("delete");
+			else this.onSubmit("update");
+		},
+		async onSubmit(methodUsed) {
+			var url = "";
+			var method = "";
+			var body = {};
+			var responseMessage = "";
+			if (methodUsed === "save") {
+				url = this.createLink;
+				method = "POST";
+				body = this.formData;
+				responseMessage = "Event Category Added";
+			} else if (methodUsed === "update") {
+				url = this.updateLink;
+				method = "POST";
+				body = this.formDataSelected;
+				responseMessage = "Event Category Updated";
+			} else {
+				url = this.deleteLink;
+				method = "POST";
+				body = this.formDataSelected;
+				responseMessage = "Event Category Deleted";
+			}
+
+			await fetch(url, {
+				method: method,
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
 					Authorization: "Bearer " + this.token,
 				},
-				body: JSON.stringify(newData ? this.formData : this.formDataSelected),
+				body: JSON.stringify(body),
 			})
 				.then((data) => {
 					if (!data.ok) {
@@ -74,9 +100,7 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					this.actionResponse.responseStatus =
 						responseData.request_status.message;
 					if (this.actionResponse.responseStatus === "success") {
-						this.actionResponse.responseMessage = newData
-							? "Event Category Added"
-							: "Event Category Updated";
+						this.actionResponse.responseMessage = responseMessage;
 					} else this.actionResponse.responseMessage = "Attempt Unsuccessful!";
 					this.modalAlert = true;
 				})
@@ -105,28 +129,28 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					this.loading = false;
 				});
 		},
-		async getRecord(id) {
-			this.fetching = true;
-			this.showViewEditForm = true;
-			await fetch("http://192.168.1.3:8081/api/master/event-category/" + id, {
-				method: "GET",
-				headers: {
-					"Content-type": "application/json",
-					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
-				},
-			})
-				.then((res) => res.json())
-				.then((response) => {
-					this.message = response;
-					this.formDataSelected = response.data;
-					this.fetching = false;
-					this.loading = false;
-				})
-				.catch((error) => {
-					this.message = error;
-					this.loading = false;
-				});
-		},
+		// async getRecord(id) {
+		// 	this.fetching = true;
+		// 	this.showViewEditForm = true;
+		// 	await fetch("http://192.168.1.3:8081/api/master/event-category/" + id, {
+		// 		method: "GET",
+		// 		headers: {
+		// 			"Content-type": "application/json",
+		// 			KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
+		// 			Authorization: "Bearer " + this.token,
+		// 		},
+		// 	})
+		// 		.then((res) => res.json())
+		// 		.then((response) => {
+		// 			this.message = response;
+		// 			this.formDataSelected = response.data;
+		// 			this.fetching = false;
+		// 			this.loading = false;
+		// 		})
+		// 		.catch((error) => {
+		// 			this.message = error;
+		// 			this.loading = false;
+		// 		});
+		// },
 	},
 });
