@@ -7,8 +7,8 @@
 				v-model="value"
 				@input="$emit('update:modelValue', $event.target.value)"
 				class="mt-1 w-full border rounded bg-gray-50 border-gray-400 px-2 py-1 placeholder:text-xs"
-				:class="`${disabled && 'bg-gray-200 cursor-not-allowed'}`"
-				:placeholder="`${disabled ? '' : placeholder}`"
+				:class="[disabled && 'bg-gray-200 cursor-not-allowed', className]"
+				:placeholder="[disabled ? '' : placeholder]"
 				:disabled="disabled"
 			/>
 		</div>
@@ -23,6 +23,7 @@ export default {
 		value: String,
 		placeholder: String,
 		disabled: Boolean,
+		className: String,
 	},
 };
 </script>
