@@ -63,12 +63,16 @@
 							</div>
 						</TableData>
 						<TableData>{{ row.description }}</TableData>
-						<TableData class="uppercase">{{ row.status }}</TableData>
+						<TableData>
+							<div class="capitalize">
+								{{ row.status }}
+							</div>
+						</TableData>
 						<TableData>
 							<div class="capitalize">
 								{{ row.firstname + " " + row.lastname }}
-							</div></TableData
-						>
+							</div>
+						</TableData>
 						<TableData>
 							<div class="flex justify-center gap-2">
 								<button

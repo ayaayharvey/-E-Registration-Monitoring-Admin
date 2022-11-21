@@ -45,12 +45,13 @@
 					:selections="['active', 'inactive']"
 					:disabled="formViewing"
 				/>
-				<!-- <Textbox
+				<Textbox
+					className="capitalize"
 					label="Creator"
-					:value="formDataSelected?.title"
+					:value="creator"
 					placeholder="Type text here"
-					:disabled="formViewing"
-				/> -->
+					disabled
+				/>
 			</div>
 			<div class="mt-5 w-full flex items-center gap-3">
 				<Button
@@ -149,6 +150,7 @@ export default {
 			},
 			roles: [],
 			formViewing: true,
+			creator: "",
 		};
 	},
 	methods: {
@@ -171,6 +173,8 @@ export default {
 		this.formData.title = this.formDataSelected.title;
 		this.formData.description = this.formDataSelected.description;
 		this.formData.status = this.formDataSelected.status;
+		this.creator =
+			this.formDataSelected.firstname + " " + this.formDataSelected.lastname;
 	},
 	setup() {
 		const eventCategoryStore = useEventCategoryStore();
