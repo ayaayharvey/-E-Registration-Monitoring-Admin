@@ -124,6 +124,8 @@
 				@next-page="data?.next_page_url && togglePage(data?.next_page_url)"
 				@prev-page="data?.prev_page_url && togglePage(data?.prev_page_url)"
 				:current_page="data.current_page"
+				:prev_page_url="data.prev_page_url"
+				:next_page_url="data.next_page_url"
 				:last_page="data.last_page"
 				:total="data.total"
 				v-if="data?.data?.length > 0"
@@ -175,6 +177,7 @@ export default {
 	// 	},
 	// },
 	created() {
+		this.getPageLink();
 		this.getPage();
 	},
 	setup() {
@@ -192,6 +195,7 @@ export default {
 		} = storeToRefs(eventCategoryStore);
 		// actions
 		const {
+			getPageLink,
 			toggleCreateForm,
 			openViewEditForm,
 			closeViewEditForm,
@@ -209,6 +213,7 @@ export default {
 			modalAlert,
 			actionResponse,
 			forDeletion,
+			getPageLink,
 			toggleCreateForm,
 			openViewEditForm,
 			closeViewEditForm,

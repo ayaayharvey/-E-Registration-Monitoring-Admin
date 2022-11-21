@@ -7,6 +7,7 @@
 			</div>
 			<div class="flex items-center">
 				<button
+					v-if="prev_page_url"
 					@click="$emit('prev-page')"
 					class="bg-blue-900 ml-1 w-[2.5rem] h-[2.5rem] border rounded text-white"
 				>
@@ -22,6 +23,7 @@
 					</svg>
 				</button>
 				<button
+					v-if="next_page_url"
 					@click="$emit('next-page')"
 					class="bg-blue-900 ml-1 w-[2.5rem] h-[2.5rem] border rounded"
 				>
@@ -46,6 +48,8 @@ export default {
 	name: "Pagination",
 	props: {
 		current_page: Number,
+		prev_page_url: String,
+		next_page_url: String,
 		last_page: Number,
 		total: Number,
 	},
