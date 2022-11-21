@@ -3,11 +3,10 @@ import { defineStore } from "pinia";
 export const useEventCategoryStore = defineStore("eventCategoryStore", {
 	state: () => ({
 		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2I0NzUxNS1iODA3LTQ2ZTAtYmMxZi1jYTU4MDkxZGZlMjkiLCJqdGkiOiIwZTJlMzc4NzQ2ZTJlYjRmNzhkMDdiNzk4OGU1NGRlNGFjMjFhNzBhNzdkOWY4Y2E0NmM3ZjUxMjFlOThhOWVjMDE0ZmQyZTMxN2Q2MGUzNCIsImlhdCI6MTY2ODAxNTI1MS43MDkxNjgsIm5iZiI6MTY2ODAxNTI1MS43MDkxOCwiZXhwIjoxNjY4MDUxMjUxLjY4OTQ4OSwic3ViIjoiMSIsInNjb3BlcyI6W119.RSyxkBHQBhDusd67q0hw8Bc4cW6G-_soA1Cir2kCLByQW9o3CdGiqeMrAChRvvOgN9xAvrdsbihOtHISGi-gTnEgz5omN8Y2ChtL5X19_u8brNmAzBVthONOWku5sY3z8_COKT8qNoNqfpVa1YbG-yQQ_08MHeMk9A-7fq_TdpncFOtaO7gB6WF6i1MXpTU2E8JgI_uV6rgCs1RuTs_jZ8WWijWsbdMoTLtIeZ09igaa0SBEXhKKjEAlIx5-5CBUWeiD20ruwvZ9bIwRtxTKQh0wlRkvd68mbFeVnL8EdCg7DTr0NUHACuYE-V4oEgEy_QuXdwX7Viab2vo8-h5W80d89_v1xeKp8YKnttRx_nATMHEVX6oJXpShtE8lZA_5Ax2hniUdj2-zbBqFhDZI6ijetzIty5eyY9cdw0wWRf3pX1UuQCewDE4tCfXycK9-WlYX23IKILQag4QwPyPxV0-YMS--KYE1zDi2uCGU2QKjjRjurIKKVWvx9B3rvO2iVrHuHA3YzLIVCZ3UmGCedNRUuT4k1XXcMpXkw7J8h3TVx17MQtU_qpa6S9aSLdgaatHTb4WRxwbNtlLR6GTsXwPDT_MsNiHUjZ0zjI1LZZq2lknxprYVgcmUmXNb17ADUWD4mFTvxf-Pb2LTRSsi_5jp6AvFTna_0aDmNkaGEuE",
-		pageLink: "http://192.168.1.8:8081/api/master/event-category/get/all",
-		createLink: "http://192.168.1.8:8081/api/master/event-category/create",
-		updateLink: "http://192.168.1.8:8081/api/master/event-category/edit",
-		deleteLink: "http://192.168.1.8:8081/api/master/event-category/delete",
+			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2NiYmFlMS1jMmUyLTQ2ODgtOTQwZS03NTBlYjVmZGU0YTMiLCJqdGkiOiI1OGQ2Yzc4OGVhOWFkZmIzNzAxMzg4NjkyNGQ5ODFkMDU5MDE4ZjI5YTZiODE2NjQwNTAxN2QyZGZlNjFhZmEwMmJiYzk3ZDFhYjE0MDQxZCIsImlhdCI6MTY2OTAxMjc4MS41ODc2OTUsIm5iZiI6MTY2OTAxMjc4MS41ODc2OTcsImV4cCI6MTY2OTA0ODc4MS41ODEzMzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.TlSjdqDg7Ujc-ERLVI5HhEQogCdU0BlZD16tUS1BY-Zjr7guQ4dzPMf2wkz1kxOtDinyIeeddODxyQ0clMrAhzn03eFxgvvqC3p6v1xpktIJYTyWI3vs3otJyNyc8q_33vncx4bCVEXKkKuFsN4-2W2P4QfMGQVCTjcGUbbgLcEGJ7AjGneDoHbqGNTKrWaJu5k5mQ0x1wzTAqFGxBTTxItbrikKkendpwbx7WcMXKbW0Anhqf4gpb19kAj7dMWl9n9EIi9ETEetD6vlR-MsaP25QqF4S_El3DR4HDOQk7BLyzS6wLAjFZbTDHLVvliKSIl4YfNkaZb7nkCnctnCwVD8GNqzWZenXSRAUCtESVKGh0DjWEPimPRCmrcAz_3hnKY4M_T0INMTgv9LIBrKp8Lv3aRnOx54Dt44sntiTn6nxMfXi2EbO2X3jFUPDN4oN2XZ0EHu6r8z9qThGpbAlKw515dkOFPhFAJ7FA4FG0y7gmMESVqwiLlIMLIDjMZnENEvHr8n-D4Fl6cN7b99DixvP71rQEJVkTUwxYSj7msfkInql3lvHzftJA5_K-pRqlfQQzP3wU9vs9TcSQjPuDOMxNBWOHzLSa-bPjtR6iIt7Xc-qRGXqWSC9nsUeNGPaYAS1f5MggoDa-Ebd_KSF0BmewaHb_pV_SRcs-Iq95E",
+		domain: "192.168.1.24",
+		port: "8000",
+		pageLink: "",
 		data: [],
 		formData: {
 			id: null,
@@ -29,6 +28,14 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 		forDeletion: false,
 	}),
 	actions: {
+		getPageLink() {
+			this.pageLink =
+				"http://" +
+				this.domain +
+				":" +
+				this.port +
+				"/api/master/event-category/get/all";
+		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
 		},
@@ -47,6 +54,29 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 			this.pageLink = requestURL;
 			this.getPage();
 		},
+		getURL(methodUsed) {
+			var protocol = "http://";
+			var url = "";
+			var module = "/api/master/event-category/";
+			if (methodUsed === "save") {
+				url = protocol + this.domain + ":" + this.port + module + "create";
+			} else if (methodUsed === "update") {
+				url = protocol + this.domain + ":" + this.port + module + "edit";
+			} else {
+				url = protocol + this.domain + ":" + this.port + module + "delete";
+			}
+			return url;
+		},
+		clearForm() {
+			this.data = [];
+			this.formData = {
+				id: null,
+				title: "",
+				description: "",
+				status: "active",
+			};
+			this.formDataSelected = {};
+		},
 		submitForm(form) {
 			this.saving = true;
 			this.formDataSelected = form;
@@ -55,22 +85,19 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 			else this.onSubmit("update");
 		},
 		async onSubmit(methodUsed) {
-			var url = "";
+			var url = this.getURL(methodUsed);
 			var method = "";
 			var body = {};
 			var responseMessage = "";
 			if (methodUsed === "save") {
-				url = this.createLink;
 				method = "POST";
 				body = this.formData;
 				responseMessage = "Event Category Added";
 			} else if (methodUsed === "update") {
-				url = this.updateLink;
 				method = "POST";
 				body = this.formDataSelected;
 				responseMessage = "Event Category Updated";
 			} else {
-				url = this.deleteLink;
 				method = "POST";
 				body = this.formDataSelected;
 				responseMessage = "Event Category Deleted";
@@ -89,6 +116,7 @@ export const useEventCategoryStore = defineStore("eventCategoryStore", {
 					if (!data.ok) {
 						throw Error(data.status);
 					} else {
+						this.clearForm();
 						this.getPage();
 					}
 					return data.json();
