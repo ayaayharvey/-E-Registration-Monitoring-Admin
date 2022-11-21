@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/dashboard/Dashboard.vue";
 import PageMaster from "../views/page-master/PageMaster.vue";
 import EventCategory from "../views/master/event-category/EventCategory.vue";
+import PaymentCategory from "../views/master/payment-category/PaymentCategory.vue";
 import Error from "../components/error/Error.vue";
 
 const routes = [
@@ -22,6 +23,11 @@ const routes = [
 				path: "event-category",
 				name: "Event Category",
 				component: EventCategory,
+			},
+			{
+				path: "payment-category",
+				name: "Payment Category",
+				component: PaymentCategory,
 			},
 		],
 	},
