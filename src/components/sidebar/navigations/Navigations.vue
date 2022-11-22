@@ -61,9 +61,9 @@ export default {
 						path: "/master/ticket-category",
 					},
 					{
-						title: "Access",
+						title: "Module Access",
 						icon: "fa fa-circle",
-						path: "/master/access",
+						path: "/master/module-access",
 					},
 					{
 						title: "Event Status",
