@@ -38,6 +38,12 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
+			this.formData = {
+				id: null,
+				title: "",
+				description: "",
+				status: "active",
+			};
 		},
 		openViewEditForm(id, method) {
 			this.forDeletion = method;

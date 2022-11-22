@@ -38,6 +38,11 @@ export const useEventStatusStore = defineStore("eventStatusStore", {
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
+			this.formData = {
+				id: null,
+				title: "",
+				description: "",
+			};
 		},
 		openViewEditForm(id, method) {
 			this.forDeletion = method;
