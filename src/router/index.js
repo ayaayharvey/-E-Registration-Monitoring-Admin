@@ -3,6 +3,7 @@ import Dashboard from "../views/dashboard/Dashboard.vue";
 import PageMaster from "../views/page-master/PageMaster.vue";
 import EventCategory from "../views/master/event-category/EventCategory.vue";
 import PaymentCategory from "../views/master/payment-category/PaymentCategory.vue";
+import TicketCategory from "../views/master/ticket-category/TicketCategory.vue";
 import Error from "../components/error/Error.vue";
 
 const routes = [
@@ -28,6 +29,11 @@ const routes = [
 				path: "payment-category",
 				name: "Payment Category",
 				component: PaymentCategory,
+			},
+			{
+				path: "ticket-category",
+				name: "Ticket Category",
+				component: TicketCategory,
 			},
 		],
 	},
