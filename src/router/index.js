@@ -6,6 +6,7 @@ import PaymentCategory from "../views/master/payment-category/PaymentCategory.vu
 import TicketCategory from "../views/master/ticket-category/TicketCategory.vue";
 import ModuleAccess from "../views/master/module-access/ModuleAccess.vue";
 import EventStatus from "../views/master/event-status/EventStatus.vue";
+import EventRatePercentage from "../views/master/event-rate-percentage/EventRatePercentage.vue";
 import Error from "../components/error/Error.vue";
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
 			// 	name: "Event Status",
 			// 	component: EventStatus,
 			// },
+			{
+				path: "event-rate-percentage",
+				name: "Event Rate Percentage",
+				component: EventRatePercentage,
+			},
 		],
 	},
 	// {
