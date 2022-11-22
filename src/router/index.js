@@ -5,6 +5,7 @@ import EventCategory from "../views/master/event-category/EventCategory.vue";
 import PaymentCategory from "../views/master/payment-category/PaymentCategory.vue";
 import TicketCategory from "../views/master/ticket-category/TicketCategory.vue";
 import ModuleAccess from "../views/master/module-access/ModuleAccess.vue";
+import EventStatus from "../views/master/event-status/EventStatus.vue";
 import Error from "../components/error/Error.vue";
 
 const routes = [
@@ -41,6 +42,11 @@ const routes = [
 				name: "Module Access",
 				component: ModuleAccess,
 			},
+			// {
+			// 	path: "event-status",
+			// 	name: "Event Status",
+			// 	component: EventStatus,
+			// },
 		],
 	},
 	// {

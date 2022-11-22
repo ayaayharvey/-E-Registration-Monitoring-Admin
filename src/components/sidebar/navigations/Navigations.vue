@@ -65,11 +65,11 @@ export default {
 						icon: "fa fa-circle",
 						path: "/master/module-access",
 					},
-					{
-						title: "Event Status",
-						icon: "fa fa-circle",
-						path: "/master/event-status",
-					},
+					// {
+					// 	title: "Event Status",
+					// 	icon: "fa fa-circle",
+					// 	path: "/master/event-status",
+					// },
 					{
 						title: "Event Rate Percentage",
 						icon: "fa fa-circle",
