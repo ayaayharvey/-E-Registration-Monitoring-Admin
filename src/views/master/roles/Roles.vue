@@ -35,7 +35,7 @@
 	/>
 	<div class="w-full">
 		<Body>
-			<Table label="Categories">
+			<Table label="List of Roles">
 				<TableHead>
 					<TableData v-for="tableLabel in tableLabels">
 						{{ tableLabel }}
@@ -54,7 +54,7 @@
 						class="odd:bg-white even:bg-gray-100 hover:bg-gray-200 transition"
 					>
 						<TableData>
-							<div class="flex">
+							<div class="flex capitalize">
 								<!-- <input
 									type="checkbox"
 									class="checked:bg-blue-500 mr-4 cursor-pointer"
@@ -76,12 +76,9 @@
 						<TableData>
 							<div class="flex justify-center gap-2">
 								<button
+									v-if="row.data_name !== 'admin'"
 									@click="openViewEditForm(row.id, false)"
 									class="fa-solid fa-eye text-blue-900 cursor-pointer justify-end"
-								></button>
-								<button
-									@click="openViewEditForm(row.id, true)"
-									class="fa-solid fa-trash-can text-red-700 cursor-pointer justify-end"
 								></button>
 							</div>
 						</TableData>
@@ -154,10 +151,10 @@ import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
 import Pagination from "../../../components/layout/Pagination.vue";
-import { useModuleAccessStore } from "../../../stores/ModuleAccessStore";
+import { useRolesStore } from "../../../stores/RolesStore";
 import { storeToRefs } from "pinia";
 export default {
-	name: "ModuleAccess",
+	name: "Roles",
 	components: {
 		Header,
 		CreateForm,
@@ -178,12 +175,18 @@ export default {
 			data: {},
 		};
 	},
+	// methods: {
+	// 	getRecord(id) {
+	// 		this.formDataSelected = this.data?.data.find((x) => x.id === id);
+	// 		this.showViewEditForm = !this.showViewEditForm;
+	// 	},
+	// },
 	created() {
 		this.getPageLink();
 		this.getPage();
 	},
 	setup() {
-		const moduleAccessStore = useModuleAccessStore();
+		const rolesStore = useRolesStore();
 		// state and getters
 		const {
 			data,
@@ -194,7 +197,7 @@ export default {
 			modalAlert,
 			actionResponse,
 			forDeletion,
-		} = storeToRefs(moduleAccessStore);
+		} = storeToRefs(rolesStore);
 		// actions
 		const {
 			getPageLink,
@@ -204,7 +207,7 @@ export default {
 			toggleAlert,
 			togglePage,
 			getPage,
-		} = moduleAccessStore;
+		} = rolesStore;
 		// return
 		return {
 			data,

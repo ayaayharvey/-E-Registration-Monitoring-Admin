@@ -31,13 +31,13 @@ export default {
 	created() {
 		this.navigations = [
 			{
-				title: "Dashboard",
+				title: "DASHBOARD",
 				icon: "fa fa-chart-area",
 				path: "/",
 				child: [],
 			},
 			{
-				title: "Master",
+				title: "MASTER",
 				icon: "fa fa-calculator",
 				child: [
 					{
@@ -60,28 +60,38 @@ export default {
 						icon: "fa fa-circle",
 						path: "/master/ticket-category",
 					},
-					{
-						title: "Module Access",
-						icon: "fa fa-circle",
-						path: "/master/module-access",
-					},
+					// {
+					// 	title: "Module Access",
+					// 	icon: "fa fa-circle",
+					// 	path: "/master/module-access",
+					// },
 					// {
 					// 	title: "Event Status",
 					// 	icon: "fa fa-circle",
 					// 	path: "/master/event-status",
 					// },
+					// {
+					// 	title: "Event Rate Percentage",
+					// 	icon: "fa fa-circle",
+					// 	path: "/master/event-rate-percentage",
+					// },
 					{
-						title: "Event Rate Percentage",
+						title: "Roles",
 						icon: "fa fa-circle",
-						path: "/master/event-rate-percentage",
+						path: "/master/roles",
 					},
 				],
 			},
 			{
-				title: "Tickets",
-				icon: "fa fa-user",
-				path: "/tickets",
-				child: [],
+				title: "ROLES",
+				icon: "fa fa-calculator",
+				child: [
+					{
+						title: "Module Access",
+						icon: "fa fa-circle",
+						path: "/roles/module-access",
+					},
+				],
 			},
 		];
 	},

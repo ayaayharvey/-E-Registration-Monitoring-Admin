@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 
-export const useModuleAccessStore = defineStore("moduleAccessStore", {
+export const useRolesStore = defineStore("rolesStore", {
 	state: () => ({
 		token:
 			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2QwYWJhOC0xNmI2LTQ5ZTQtODlhYS1hYmU2YzM1OGUxMzgiLCJqdGkiOiIwYmExZmE5OWQ3ODk5NjdmNzY1MGQzNjliMDg1OWRhZWU1YjU3MmMwNDkwZThkNTdiMGRiNGI2ZmJmMDg3NWQ0YWMxMzlhZWZmMGQyY2MzNSIsImlhdCI6MTY2OTIzMTQwMy43NzgwOTIsIm5iZiI6MTY2OTIzMTQwMy43NzgwOTUsImV4cCI6MTY2OTI2NzQwMy43NTgzODQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.F29scNXyliYZyeKzfKPYRCh_SKjILbc21TbhZ2q6akjQHh_0WH3Aee3-jdtdnb_dFVPlm3jjUO-mEpqNomznHel-cPAHjCc81hlf6_hxbUccpuHE3AD98-dFLaFHi67Dwykd-1g1wGCrxuCV0TcGvcbrluXiYomr6Gb-tOJ_J39C1GlY4aMDnh9HTekjZooRZQWYxHapMp1WKepUH4W9EhgmejClYBgDFwOiQp9F6UiZFnRflhf9RSGbYl4fqghTOqIlw6eFz1HSrCqRTEbb-cvb6AouQROjECyL78JFlO9v3g95VKW3q_Iz3PxU7ZAGsQJGmZmn5MiZ-ieW2OgFygu9vckpBqJnuo9YtVW6CJM_zkvx2DY97CybiabBnVCDAHFGClMLiZl4PmLrkMixCQaA-_E-Vuc8Xm5piB-lW7Xw_KFAaQLGzlSNPEP_uPzi5V6akSpPAXZ5EiUvjOF0q9UXVggx-4iC3wJFS78yMf7jEh9heQOwK5kGp8RW3SG3UjzvdH7c6-5PmOFhgvEHo09EdARZu3gpAx_W9a1EZqIViiDepF4vFXq2bkMbCfNBVr7lAL_6noQ3wb6O1qQ0m4WjeERoUkMkqswlJopM_fwNjDBBbS8LkZ6tJO0Js77S4vBN7K-bdCn53nVGkbxi48P68tEbSZ0Vo-twOG1drs4",
-		domain: "192.168.1.25",
+		domain: "192.168.1.24",
 		port: "8000",
 		pageLink: "",
 		data: [],
@@ -30,11 +30,7 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 	actions: {
 		getPageLink() {
 			this.pageLink =
-				"http://" +
-				this.domain +
-				":" +
-				this.port +
-				"/api/master/access/get/all";
+				"http://" + this.domain + ":" + this.port + "/api/master/roles/get/all";
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
@@ -63,7 +59,7 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 		getURL(methodUsed) {
 			var protocol = "http://";
 			var url = "";
-			var module = "/api/master/access/";
+			var module = "/api/master/roles/";
 			if (methodUsed === "save") {
 				url = protocol + this.domain + ":" + this.port + module + "create";
 			} else if (methodUsed === "update") {
@@ -97,16 +93,21 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 			var responseMessage = "";
 			if (methodUsed === "save") {
 				method = "POST";
+				this.formData.data_name = this.formData.title
+					.toLowerCase()
+					.replace(/\s/g, "-");
+
 				body = this.formData;
-				responseMessage = "Module Access Added";
+
+				responseMessage = "Roles Added";
 			} else if (methodUsed === "update") {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Module Access Updated";
+				responseMessage = "Roles Updated";
 			} else {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Module Access Deleted";
+				responseMessage = "Roles Deleted";
 			}
 
 			await fetch(url, {
