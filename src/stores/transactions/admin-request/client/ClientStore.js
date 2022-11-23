@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 
-export const useModuleAccessStore = defineStore("moduleAccessStore", {
+export const useClientStore = defineStore("clientStore", {
 	state: () => ({
 		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2QwYWJhOC0xNmI2LTQ5ZTQtODlhYS1hYmU2YzM1OGUxMzgiLCJqdGkiOiIwYmExZmE5OWQ3ODk5NjdmNzY1MGQzNjliMDg1OWRhZWU1YjU3MmMwNDkwZThkNTdiMGRiNGI2ZmJmMDg3NWQ0YWMxMzlhZWZmMGQyY2MzNSIsImlhdCI6MTY2OTIzMTQwMy43NzgwOTIsIm5iZiI6MTY2OTIzMTQwMy43NzgwOTUsImV4cCI6MTY2OTI2NzQwMy43NTgzODQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.F29scNXyliYZyeKzfKPYRCh_SKjILbc21TbhZ2q6akjQHh_0WH3Aee3-jdtdnb_dFVPlm3jjUO-mEpqNomznHel-cPAHjCc81hlf6_hxbUccpuHE3AD98-dFLaFHi67Dwykd-1g1wGCrxuCV0TcGvcbrluXiYomr6Gb-tOJ_J39C1GlY4aMDnh9HTekjZooRZQWYxHapMp1WKepUH4W9EhgmejClYBgDFwOiQp9F6UiZFnRflhf9RSGbYl4fqghTOqIlw6eFz1HSrCqRTEbb-cvb6AouQROjECyL78JFlO9v3g95VKW3q_Iz3PxU7ZAGsQJGmZmn5MiZ-ieW2OgFygu9vckpBqJnuo9YtVW6CJM_zkvx2DY97CybiabBnVCDAHFGClMLiZl4PmLrkMixCQaA-_E-Vuc8Xm5piB-lW7Xw_KFAaQLGzlSNPEP_uPzi5V6akSpPAXZ5EiUvjOF0q9UXVggx-4iC3wJFS78yMf7jEh9heQOwK5kGp8RW3SG3UjzvdH7c6-5PmOFhgvEHo09EdARZu3gpAx_W9a1EZqIViiDepF4vFXq2bkMbCfNBVr7lAL_6noQ3wb6O1qQ0m4WjeERoUkMkqswlJopM_fwNjDBBbS8LkZ6tJO0Js77S4vBN7K-bdCn53nVGkbxi48P68tEbSZ0Vo-twOG1drs4",
+			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2NkZDMwOC03MWJkLTQ1ODMtYmU0ZC0xZTg0ZjdiOTUyYWIiLCJqdGkiOiIxZWNmNWQ4YzY1Nzc0NWJmNTJjYjk2NDBhZDFjNzMyZmJiMjE2NmI3YWI2MzZmMDE1NjljNDMwM2Q1NDNlMmJjZjNhMTU0MWE0YWFkNDA0YSIsImlhdCI6MTY2OTEzNzQ4My44NjgxMTEsIm5iZiI6MTY2OTEzNzQ4My44NjgxMjIsImV4cCI6MTY2OTE3MzQ4My44MTU4MDMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.BVZhruVUBNbLYFkn5PYJmiC4ON-gSODC_LRpgYpagbiG5gytOZ-JzbtFX_14wH0qIQirihs6UPDlInDWfmINGCaB8NTf_FjOXr8qRQzkgla7pQT5cF3pYfBMrg9xfTMZvUF9FSQnIv-5znP7cJiyaT_pvxk54K2A4PaWu1I41rSr6F1QjsyUDfcFhZzXGB_DkOYuBRg-0wJ__JrVk14UcQQRXM1u3IlZGfLrvURpyDqMgeSdVkZFYNOxn7EPfMqDiA1LzziL08En8URldj9pQ49ZWaq6oqIAwzbOkTGKv6O1lAdvOD2rKdIY96kjLckPNq6dX2sw8juczTCzFAWyWUOSb_o8xNMmeo1ilFAevSKM1nf-UbBpU6l_xX-YEPcSF7Ia9sIeMNXw5E71Lt0_vCoPsnvGjH4JRziKjFq0jw096ZgeWLVjOl5gOiaDntL1A9pSNmrHU3z8i-0jMao_T1ONawui-12KQ_5FO1KgYM9odXZRlAYSQHFu8WUmQB7jicLpF2JTuutB9DdKseWmc768bkxQF_YH6Yf2yvnsDK9Rj3hWbf5sEFjre2iemvoevO3Aq3uPitrSTobechvsjBmKQBEL0mp9kYoRJW4BDq2Bve0jMg5MOMshV84BddDNA7w1xsgnO2grumYVzks-FUbGdXlQ2MBw1LNhxxXHnYM",
 		domain: "192.168.1.25",
 		port: "8000",
 		pageLink: "",
@@ -34,7 +34,7 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 				this.domain +
 				":" +
 				this.port +
-				"/api/master/access/get/all";
+				"/api/transaction/client/get/all";
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
@@ -63,7 +63,7 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 		getURL(methodUsed) {
 			var protocol = "http://";
 			var url = "";
-			var module = "/api/master/access/";
+			var module = "/api/transaction/client/";
 			if (methodUsed === "save") {
 				url = protocol + this.domain + ":" + this.port + module + "create";
 			} else if (methodUsed === "update") {
@@ -98,15 +98,15 @@ export const useModuleAccessStore = defineStore("moduleAccessStore", {
 			if (methodUsed === "save") {
 				method = "POST";
 				body = this.formData;
-				responseMessage = "Module Access Added";
+				responseMessage = "Client Record Added";
 			} else if (methodUsed === "update") {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Module Access Updated";
+				responseMessage = "Client Record Updated";
 			} else {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Module Access Deleted";
+				responseMessage = "Client Record Deleted";
 			}
 
 			await fetch(url, {
