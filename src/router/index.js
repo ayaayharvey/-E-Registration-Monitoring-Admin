@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/dashboard/Dashboard.vue";
-import PageMaster from "../views/page-master/PageMaster.vue";
+// import PageMaster from "../views/page-master/PageMaster.vue";
 import EventCategory from "../views/master/event-category/EventCategory.vue";
 import PaymentCategory from "../views/master/payment-category/PaymentCategory.vue";
 import TicketCategory from "../views/master/ticket-category/TicketCategory.vue";
 import EventStatus from "../views/master/event-status/EventStatus.vue";
 import EventRatePercentage from "../views/master/event-rate-percentage/EventRatePercentage.vue";
 import Roles from "../views/master/roles/Roles.vue";
-// import ModuleAccess from "../views//module-access/ModuleAccess.vue";
+import ModuleAccess from "../views/roles/module-access/ModuleAccess.vue";
 import Error from "../components/error/Error.vue";
 
 const routes = [
@@ -19,11 +19,11 @@ const routes = [
 	{
 		path: "/master",
 		children: [
-			{
-				path: "page",
-				name: "Page Master",
-				component: PageMaster,
-			},
+			// {
+			// 	path: "page",
+			// 	name: "Page Master",
+			// 	component: PageMaster,
+			// },
 			{
 				path: "event-category",
 				name: "Event Category",
@@ -59,11 +59,11 @@ const routes = [
 	{
 		path: "/roles",
 		children: [
-			// {
-			// 	path: "module-access",
-			// 	name: "Module Access",
-			// 	component: ModuleAccess,
-			// },
+			{
+				path: "module-access",
+				name: "Module Access",
+				component: ModuleAccess,
+			},
 		],
 	},
 	// {
