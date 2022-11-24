@@ -31,13 +31,13 @@ export default {
 	created() {
 		this.navigations = [
 			{
-				title: "DASHBOARD",
+				title: "Dashboard",
 				icon: "fa fa-chart-area",
 				path: "/",
 				child: [],
 			},
 			{
-				title: "MASTER",
+				title: "Master",
 				icon: "fa fa-calculator",
 				child: [
 					{
@@ -76,14 +76,14 @@ export default {
 					// 	path: "/master/event-rate-percentage",
 					// },
 					{
-						title: "Roles",
+						title: "Roles Settings",
 						icon: "fa fa-circle",
 						path: "/master/roles",
 					},
 				],
 			},
 			{
-				title: "ROLES",
+				title: "Roles",
 				icon: "fa fa-calculator",
 				child: [
 					{
