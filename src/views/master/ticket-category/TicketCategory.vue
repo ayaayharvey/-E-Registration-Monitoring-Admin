@@ -154,7 +154,7 @@ import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
 import Pagination from "../../../components/layout/Pagination.vue";
-import { useTicketCategoryStore } from "../../../stores/TicketCategoryStore";
+import { useTicketCategoryStore } from "../../../stores/master/TicketCategoryStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "TicketCategory",

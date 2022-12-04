@@ -50,7 +50,7 @@ import Textbox from "../../../components/layout/Textbox.vue";
 import TextArea from "../../../components/layout/TextArea.vue";
 import Dropdown from "../../../components/layout/Dropdown.vue";
 import Button from "../../../components/layout/Button.vue";
-import { useEventRatePercentageStore } from "../../../stores/EventRatePercentageStore";
+import { useEventRatePercentageStore } from "../../../stores/master/EventRatePercentageStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "CreateForm",

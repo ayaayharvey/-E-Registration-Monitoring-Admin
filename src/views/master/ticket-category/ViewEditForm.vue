@@ -120,7 +120,7 @@ import Textbox from "../../../components/layout/Textbox.vue";
 import TextArea from "../../../components/layout/TextArea.vue";
 import Dropdown from "../../../components/layout/Dropdown.vue";
 import Button from "../../../components/layout/Button.vue";
-import { useTicketCategoryStore } from "../../../stores/TicketCategoryStore";
+import { useTicketCategoryStore } from "../../../stores/master/TicketCategoryStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "ViewEditForm",

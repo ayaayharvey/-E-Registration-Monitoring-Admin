@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
+import { useLoginStore } from "../login/LoginStore";
 
-export const useRolesStore = defineStore("rolesStore", {
+export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 	state: () => ({
 		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2QyOTJlYy01N2RjLTRlNTgtYTEzMy1lMzRiMTQ4NDM3YWMiLCJqdGkiOiI1YTE0MDA4NGQzYzUyMjZmMTU3NmI4MjBlZDZhYjllYmE5YzZmZjMzOWJmZGNlMjNkYzdkZGI2OGY4NGU0MDliZmZmZTE1ZmZjMGY2YmI5NCIsImlhdCI6MTY2OTMwNzI4NS4wMzc4MTMsIm5iZiI6MTY2OTMwNzI4NS4wMzc4MiwiZXhwIjoxNjY5MzQzMjg1LjAyNDAxOCwic3ViIjoiMSIsInNjb3BlcyI6W119.PAcV8dmkR3Fc1ywsRNDaXmnsQCi_-AsRfwb5ufxs2zlh-VMBKaR0SbmkX4n-MCqiRE3XaqszlUHudZblu8Vg1IJ03WQ77e4CkWpvsXnM97qjPEhING58DdpnbNdtriz3362lX56oO2Umkiq1gc7-BGZw1BVAEzQLxo2LJqjEJOK3F0x766vB9_PBTZteP7HweoK2HqYU8rq9cK-JRmTrTYEZk3175RfFNWvnxj7yzxOu4cPh-WKNVzE19wqtwSNABP1nSV4s4OISZsCLGWDVnaIW6jz4yFmOl1Awf8W1u36Sfjj43FfLnPkeJzjhezwkPcndc5PDJnQlR2_uKVb7Fse9ln00tmdyxooe95b8EEglasVyhm06qxoQNKgIrVV7iFmwifZR60k3O394e40ArR40-96CKeURVndXos0p4ZoCjC6gWr2EgCX6GGkBc5ZXqU32vCRM85rA8DNK_jexOGDxA7vAHOwlYK1ao1digEM3wm5l3TipG3VqVKfvwOnIcnHgrFfSXamXS3HrqVLS4yNRdRLl7HshxZiuxxqb82V48FSCef4KyEkGr-Ak14gp_CwRvFrz62jpSuSTQCNX4d3dz1i-MHnmBXiJX1hNvd2LiVx8jnKss9JNf3Lri3-70PNogTomvOLXTx2iVhO_EpYMyw6FT1b3PRvFBws_Bis",
-		domain: "192.168.1.24",
+			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2NiYmFlMS1jMmUyLTQ2ODgtOTQwZS03NTBlYjVmZGU0YTMiLCJqdGkiOiJkMTlhNDRmNGU1NzNlMzc3YzViMDg2OTI2MDhjYmIxNjA4YWJjNjA5NmM1Y2Q4MmUxNzUzZGVjZjZjZjUzOGUzYzczODc3MzEyMTk4YzcxMyIsImlhdCI6MTY2OTAzMzgxOC44NTA1NTUsIm5iZiI6MTY2OTAzMzgxOC44NTA1NTksImV4cCI6MTY2OTA2OTgxOC43Mzg3Nywic3ViIjoiMSIsInNjb3BlcyI6W119.eSJBrsTlST1W41tKbXVeMPMeTr1Q84kuE6fq-NccJt5tO7ehsFMNlHZM2QD3p4bbU2LbSPdGEXDRgIian38JXReWdNPg-MRx844fki19asKuQEsuLWUgYhBC-A66YZZW4YKMWYJuLU9YBHp4YNAZlmUf-BEIpjih3gRVFLIUnpiPywNZ5vgszk8FN9Y6UWv8hCvp5wMx71S-RzVKTl_homw2W2P8nt3genvjVTg3zWPS_heFd6IwdeYN7J2L5k3X7qnt0lHPq8xXYgNcHcDz5IZOV-ukmks7FqVWAQl2FEwJYleb8zJkSJH2UZpQpnSBFhb6s_GLEdeMiY8jXLgPzGqeJwhE8HzDLUsip1ta3KJU11s5Sh4MR1vJKHjbR8HcVeqtKiN2MTZAAayvaPZIIXy1QiEgVavYOnAFUy4QIM2zLOTi6SFI8ahW3dgI0qOX0PGeVLpq52cgRczXdOYZKwpcaDQPj3UkiuYC9PE4GZ4nucipn2SQ-mTacoOr0G76EYuzVS5LMEP7I-kvlHEubi4_DVwfSSkLxTiyXFL66UZ8O4zVkPSeZc4lizic_zvrwtaWs6CrTV9mBPxH9uTp82Qkd68Z30h52jISkBidCgjjRTRapa6bOHlCooOtF0mvVbhe5SrM5YahGed248g6MfWN2t778JxEGRUO2vdqcZs",
+		domain: "192.168.1.25",
 		port: "8000",
 		pageLink: "",
 		data: [],
@@ -26,11 +27,16 @@ export const useRolesStore = defineStore("rolesStore", {
 			responseMessage: "",
 		},
 		forDeletion: false,
+		loginStore: useLoginStore(),
 	}),
 	actions: {
 		getPageLink() {
 			this.pageLink =
-				"http://" + this.domain + ":" + this.port + "/api/master/roles/get/all";
+				"http://" +
+				this.loginStore.domain +
+				":" +
+				this.loginStore.port +
+				"/api/master/payment-category/get/all";
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
@@ -59,13 +65,31 @@ export const useRolesStore = defineStore("rolesStore", {
 		getURL(methodUsed) {
 			var protocol = "http://";
 			var url = "";
-			var module = "/api/master/roles/";
+			var module = "/api/master/payment-category/";
 			if (methodUsed === "save") {
-				url = protocol + this.domain + ":" + this.port + module + "create";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"create";
 			} else if (methodUsed === "update") {
-				url = protocol + this.domain + ":" + this.port + module + "edit";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"edit";
 			} else {
-				url = protocol + this.domain + ":" + this.port + module + "delete";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"delete";
 			}
 			return url;
 		},
@@ -93,21 +117,16 @@ export const useRolesStore = defineStore("rolesStore", {
 			var responseMessage = "";
 			if (methodUsed === "save") {
 				method = "POST";
-				this.formData.data_name = this.formData.title
-					.toLowerCase()
-					.replace(/\s/g, "-");
-
 				body = this.formData;
-
-				responseMessage = "Roles Added";
+				responseMessage = "Payment Category Added";
 			} else if (methodUsed === "update") {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Roles Updated";
+				responseMessage = "Payment Category Updated";
 			} else {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Roles Deleted";
+				responseMessage = "Payment Category Deleted";
 			}
 
 			await fetch(url, {
@@ -115,7 +134,7 @@ export const useRolesStore = defineStore("rolesStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 				body: JSON.stringify(body),
 			})
@@ -150,7 +169,7 @@ export const useRolesStore = defineStore("rolesStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 			})
 				.then((res) => res.json())

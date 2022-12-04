@@ -44,7 +44,7 @@ import Textbox from "../../../components/layout/Textbox.vue";
 import TextArea from "../../../components/layout/TextArea.vue";
 import Dropdown from "../../../components/layout/Dropdown.vue";
 import Button from "../../../components/layout/Button.vue";
-import { useEventCategoryStore } from "../../../stores/EventCategoryStore";
+import { useEventCategoryStore } from "../../../stores/master/EventCategoryStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "CreateForm",

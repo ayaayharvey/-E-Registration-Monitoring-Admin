@@ -120,7 +120,7 @@ import Textbox from "../../../components/layout/Textbox.vue";
 import TextArea from "../../../components/layout/TextArea.vue";
 import Dropdown from "../../../components/layout/Dropdown.vue";
 import Button from "../../../components/layout/Button.vue";
-import { useModuleAccessStore } from "../../../stores/moduleAccessStore";
+import { useModuleAccessStore } from "../../../stores/master/moduleAccessStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "ViewEditForm",

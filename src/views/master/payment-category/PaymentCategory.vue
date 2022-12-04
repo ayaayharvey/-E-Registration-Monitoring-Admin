@@ -154,7 +154,7 @@ import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
 import Pagination from "../../../components/layout/Pagination.vue";
-import { usePaymentCategoryStore } from "../../../stores/PaymentCategoryStore";
+import { usePaymentCategoryStore } from "../../../stores/master/PaymentCategoryStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "PaymentCategory",
