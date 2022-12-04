@@ -1,11 +1,8 @@
 import { defineStore } from "pinia";
+import { useLoginStore } from "../login/LoginStore";
 
-export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
+export const useRolesStore = defineStore("rolesStore", {
 	state: () => ({
-		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2NiYmFlMS1jMmUyLTQ2ODgtOTQwZS03NTBlYjVmZGU0YTMiLCJqdGkiOiJkMTlhNDRmNGU1NzNlMzc3YzViMDg2OTI2MDhjYmIxNjA4YWJjNjA5NmM1Y2Q4MmUxNzUzZGVjZjZjZjUzOGUzYzczODc3MzEyMTk4YzcxMyIsImlhdCI6MTY2OTAzMzgxOC44NTA1NTUsIm5iZiI6MTY2OTAzMzgxOC44NTA1NTksImV4cCI6MTY2OTA2OTgxOC43Mzg3Nywic3ViIjoiMSIsInNjb3BlcyI6W119.eSJBrsTlST1W41tKbXVeMPMeTr1Q84kuE6fq-NccJt5tO7ehsFMNlHZM2QD3p4bbU2LbSPdGEXDRgIian38JXReWdNPg-MRx844fki19asKuQEsuLWUgYhBC-A66YZZW4YKMWYJuLU9YBHp4YNAZlmUf-BEIpjih3gRVFLIUnpiPywNZ5vgszk8FN9Y6UWv8hCvp5wMx71S-RzVKTl_homw2W2P8nt3genvjVTg3zWPS_heFd6IwdeYN7J2L5k3X7qnt0lHPq8xXYgNcHcDz5IZOV-ukmks7FqVWAQl2FEwJYleb8zJkSJH2UZpQpnSBFhb6s_GLEdeMiY8jXLgPzGqeJwhE8HzDLUsip1ta3KJU11s5Sh4MR1vJKHjbR8HcVeqtKiN2MTZAAayvaPZIIXy1QiEgVavYOnAFUy4QIM2zLOTi6SFI8ahW3dgI0qOX0PGeVLpq52cgRczXdOYZKwpcaDQPj3UkiuYC9PE4GZ4nucipn2SQ-mTacoOr0G76EYuzVS5LMEP7I-kvlHEubi4_DVwfSSkLxTiyXFL66UZ8O4zVkPSeZc4lizic_zvrwtaWs6CrTV9mBPxH9uTp82Qkd68Z30h52jISkBidCgjjRTRapa6bOHlCooOtF0mvVbhe5SrM5YahGed248g6MfWN2t778JxEGRUO2vdqcZs",
-		domain: "192.168.1.25",
-		port: "8000",
 		pageLink: "",
 		data: [],
 		formData: {
@@ -26,15 +23,20 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 			responseMessage: "",
 		},
 		forDeletion: false,
+		loginStore: useLoginStore(),
 	}),
 	actions: {
+		// setToken() {
+		// 	const loginStore = useLoginStore();
+		// 	return loginStore.token;
+		// },
 		getPageLink() {
 			this.pageLink =
 				"http://" +
-				this.domain +
+				this.loginStore.domain +
 				":" +
-				this.port +
-				"/api/master/payment-category/get/all";
+				this.loginStore.port +
+				"/api/master/roles/get/all";
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
@@ -63,13 +65,31 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 		getURL(methodUsed) {
 			var protocol = "http://";
 			var url = "";
-			var module = "/api/master/payment-category/";
+			var module = "/api/master/roles/";
 			if (methodUsed === "save") {
-				url = protocol + this.domain + ":" + this.port + module + "create";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"create";
 			} else if (methodUsed === "update") {
-				url = protocol + this.domain + ":" + this.port + module + "edit";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"edit";
 			} else {
-				url = protocol + this.domain + ":" + this.port + module + "delete";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"delete";
 			}
 			return url;
 		},
@@ -97,16 +117,21 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 			var responseMessage = "";
 			if (methodUsed === "save") {
 				method = "POST";
+				this.formData.data_name = this.formData.title
+					.toLowerCase()
+					.replace(/\s/g, "-");
+
 				body = this.formData;
-				responseMessage = "Payment Category Added";
+
+				responseMessage = "Roles Added";
 			} else if (methodUsed === "update") {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Payment Category Updated";
+				responseMessage = "Roles Updated";
 			} else {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Payment Category Deleted";
+				responseMessage = "Roles Deleted";
 			}
 
 			await fetch(url, {
@@ -114,7 +139,7 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 				body: JSON.stringify(body),
 			})
@@ -149,7 +174,7 @@ export const usePaymentCategoryStore = defineStore("paymentCategoryStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 			})
 				.then((res) => res.json())

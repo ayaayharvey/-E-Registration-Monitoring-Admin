@@ -69,14 +69,9 @@
 							</div>
 						</TableData>
 						<TableData>
-							<div class="capitalize">
-								{{ row.firstname + " " + row.lastname }}
-							</div>
-						</TableData>
-						<TableData>
 							<div class="flex justify-center gap-2">
 								<button
-									v-if="row.data_name !== 'admin'"
+									v-if="row.data_name !== 'super_admin'"
 									@click="openViewEditForm(row.id, false)"
 									class="fa-solid fa-eye text-blue-900 cursor-pointer justify-end"
 								></button>
@@ -151,7 +146,7 @@ import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
 import Pagination from "../../../components/layout/Pagination.vue";
-import { useRolesStore } from "../../../stores/RolesStore";
+import { useRolesStore } from "../../../stores/master/RolesStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "Roles",
@@ -171,7 +166,7 @@ export default {
 	data() {
 		return {
 			formDataSelected: {},
-			tableLabels: ["Title", "Description", "Status", "Creator"],
+			tableLabels: ["Title", "Description", "Status"],
 			data: {},
 		};
 	},

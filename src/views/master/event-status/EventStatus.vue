@@ -154,7 +154,7 @@ import TableHead from "../../../components/layout/table/TableHead.vue";
 import TableBody from "../../../components/layout/table/TableBody.vue";
 import TableData from "../../../components/layout/table/TableData.vue";
 import Pagination from "../../../components/layout/Pagination.vue";
-import { useEventStatusStore } from "../../../stores/EventStatusStore";
+import { useEventStatusStore } from "../../../stores/master/EventStatusStore";
 import { storeToRefs } from "pinia";
 export default {
 	name: "EventStatus",

@@ -1,11 +1,8 @@
 import { defineStore } from "pinia";
+import { useLoginStore } from "../login/LoginStore";
 
-export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
+export const useEventStatusStore = defineStore("eventStatusStore", {
 	state: () => ({
-		token:
-			"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5N2NiYmFlMS1jMmUyLTQ2ODgtOTQwZS03NTBlYjVmZGU0YTMiLCJqdGkiOiJlMjE0M2I0Yzk2NGIwODU0MGE4ZTRmM2U3YjJlNTRhOWZmNzUyMDY3NTc5ZDBmZDIzZDBkMzc3Y2YxMGI0ODk3YzZmZjA3ZTFhODdhMDdiZiIsImlhdCI6MTY2OTA5MTA1NC41NTUwNjksIm5iZiI6MTY2OTA5MTA1NC41NTUwOTksImV4cCI6MTY2OTEyNzA1NC40MTA0NzgsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.aeB0j4BnASIwX56CkQL00xq_vZ68PfDe3fI_KAfgP_GbriOC2Vq4Rpbw14EBrGTcf1hmsBpWpCyN5IRvNUd960gtsSApjuZCpaj_TzYaWIE-fdmDn_fPhSLqseD47iAH1WBXhWITZIIdTxQUIk3H7FNP5sb_Ck6NnX-wvEHATG_81cSzMrA6vY5pbt5_e7fSU-_0ib8NkSPAu-Q1O2cZX_X71H10Gia5hHwNxh41D4RfJRdK6bFRiUF2lEefpfhv4eMTruCQ5YhCZMEimF1O22CmdDJTkhBUEa3125JyF829-40B5nLeJ-WpxJjcAcsk-x6FPY0ALWGtGFpSsWX2ppuWnVXXLWDe7qdEdyYcyXXX0L_Eb4SPtQKksLYzfQpf4OWk0stiloncecc3MLIbqd9JmvjlvEFnT38y8BgeWkbmEqym5_TtPj3JYvwZFggDb3j_wZ83V6BTDTo69JsTTJgY1GT6P0n7y9eGmBJvBR6S3N1gp5HhPHCsg3WunMz0QimFaJpwpstVeL4iJBAbgp3z5Tes5ED5JVhA8gU_CCKArN8DmHyaxzsZwoEnmAike02zeA3v8F04fDzlQ4IvDhRCFflEWgDGABb2_EkkEyHFKlpK-4CKyL874oVL0mShFyfT5maCe70RJDtLGUF6ssuBAhPR1mFvKij4GL4dXXs",
-		domain: "192.168.1.25",
-		port: "8000",
 		pageLink: "",
 		data: [],
 		formData: {
@@ -26,15 +23,16 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 			responseMessage: "",
 		},
 		forDeletion: false,
+		loginStore: useLoginStore(),
 	}),
 	actions: {
 		getPageLink() {
 			this.pageLink =
 				"http://" +
-				this.domain +
+				this.loginStore.domain +
 				":" +
-				this.port +
-				"/api/master/ticket-category/get/all";
+				this.loginStore.port +
+				"/api/master/event-status/get/all";
 		},
 		toggleCreateForm() {
 			this.showCreateForm = !this.showCreateForm;
@@ -42,7 +40,6 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 				id: null,
 				title: "",
 				description: "",
-				status: "active",
 			};
 		},
 		openViewEditForm(id, method) {
@@ -63,13 +60,31 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 		getURL(methodUsed) {
 			var protocol = "http://";
 			var url = "";
-			var module = "/api/master/ticket-category/";
+			var module = "/api/master/event-status/";
 			if (methodUsed === "save") {
-				url = protocol + this.domain + ":" + this.port + module + "create";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"create";
 			} else if (methodUsed === "update") {
-				url = protocol + this.domain + ":" + this.port + module + "edit";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"edit";
 			} else {
-				url = protocol + this.domain + ":" + this.port + module + "delete";
+				url =
+					protocol +
+					this.loginStore.domain +
+					":" +
+					this.loginStore.port +
+					module +
+					"delete";
 			}
 			return url;
 		},
@@ -98,15 +113,15 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 			if (methodUsed === "save") {
 				method = "POST";
 				body = this.formData;
-				responseMessage = "Ticket Category Added";
+				responseMessage = "Event Status Added";
 			} else if (methodUsed === "update") {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Ticket Category Updated";
+				responseMessage = "Event Status Updated";
 			} else {
 				method = "POST";
 				body = this.formDataSelected;
-				responseMessage = "Ticket Category Deleted";
+				responseMessage = "Event Status Deleted";
 			}
 
 			await fetch(url, {
@@ -114,7 +129,7 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 				body: JSON.stringify(body),
 			})
@@ -149,7 +164,7 @@ export const useTicketCategoryStore = defineStore("ticketCategoryStore", {
 				headers: {
 					"Content-type": "application/json",
 					KEY: "$2y$10$BaPrYesKdAQDgpYk1sVK5.vhfoXkgEfD6VvLMCgA0uaNs7I58TKE2",
-					Authorization: "Bearer " + this.token,
+					Authorization: "Bearer " + this.loginStore.token,
 				},
 			})
 				.then((res) => res.json())
